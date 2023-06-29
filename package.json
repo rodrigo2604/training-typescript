@@ -22,7 +22,7 @@
     "typescript": "~5.0"
   },
   "scripts": {
-    "start": "node build/src/main.js",
+    "start": "node build/src/app/index.js",
     "clean": "rimraf coverage build tmp",
     "prebuild": "npm run lint",
     "build": "tsc -p tsconfig.json",
@@ -36,7 +36,9 @@
   "author": "Jakub Synowiec <jsynowiec@users.noreply.github.com>",
   "license": "Apache-2.0",
   "dependencies": {
+    "@apollo/server": "^4.7.5",
     "aws-sdk": "^2.1407.0",
+    "graphql": "^16.7.1",
     "tslib": "~2.5"
   },
   "volta": {

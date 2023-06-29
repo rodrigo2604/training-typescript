@@ -1,4 +1,4 @@
-type CrawlingPagePrimitives = {
+export type CrawlingPagePrimitives = {
   URL: string;
   pageTitle: string;
   content: string;
@@ -20,14 +20,14 @@ export class CrawlingPage {
     pageTitle: string;
     content: string;
     wordCount: number;
-    tags: string[];
     crawledAt: Date;
+    tags?: string[];
   }) {
     this.URL = props.URL;
     this.pageTitle = props.pageTitle;
     this.content = props.content;
     this.wordCount = props.wordCount;
-    this.tags = props.tags;
+    this.tags = props.tags || [];
     this.crawledAt = props.crawledAt;
   }
 

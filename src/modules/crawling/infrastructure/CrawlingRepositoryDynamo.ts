@@ -99,7 +99,7 @@ export class CrawlingRepositoryDynamo implements CrawlingRepository {
     });
   }
 
-  findByURL(url: string): Promise<CrawlingPage> {
+  findByURL(url: string): Promise<CrawlingPage | null> {
     const params: DynamoDB.Types.GetItemInput = {
       Key: {
         URL: {
@@ -111,13 +111,13 @@ export class CrawlingRepositoryDynamo implements CrawlingRepository {
         'URL, pageTitle, content, wordCount, tags, crawledAt',
     };
 
-    return new Promise<CrawlingPage>((resolve, reject) => {
+    return new Promise<CrawlingPage | null>((resolve, reject) => {
       this.db.getItem(params, (err, data) => {
         if (err) {
           return reject(new Error('Error during list crawling pages'));
         }
 
-        resolve(CrawlingPage.fromPrimitives(data.Item));
+        resolve(data.Item ? CrawlingPage.fromPrimitives(data.Item): null);
       });
     });
   }
