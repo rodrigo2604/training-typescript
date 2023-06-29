@@ -1,7 +1,7 @@
 # Training Dynamo DB and GraphQL with Typescript
 
 ## Deep clone utility
-It has been used the `structuredClone` utility included in NodeJS >17. Tests are provided at `__tests__` root folder
+Utility script is allocated at `src/utils/deepCopyList.ts`. It has been used the `structuredClone` utility included in NodeJS >17. Tests are provided at `__tests__` root folder
 
 ## Dynamo DB Crawling implementation
 The implementation of crawling repository for DynamoDB is included at `src/modules/crawling/infrastructure/CrawlingRepositoryDynamo.ts`.
@@ -9,6 +9,7 @@ The implementation of crawling repository for DynamoDB is included at `src/modul
 On the other hand, a implementation in memory has been developed in order to test GraphQL queries.
 
 ## Example queries for GraphQL API
+Implementation of GraphQL server is allocated at `src/app/index.ts`.
 
 - Fetch all pages ordered by `crawledAt`
   ```txt
